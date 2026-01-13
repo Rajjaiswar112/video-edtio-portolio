@@ -182,18 +182,24 @@ section{padding:5rem 9%;}
 
 <section class="showreel fade-up">
 <h2 class="section-title">Showreel</h2>
-<video src="reel/showreel.mp4"controls playsinline></video>
+<video id="showreelVideo" src="showreel/SHOW.mp4" playsinline></video>
+
 </section>
 
-<section class="reels fade-up">
-<h2 class="section-title">Instagram Reels</h2>
-<div class="reels-grid">
-<video src="reel/BMW.mp4" playsinline></video>
-<video src="reel/IRONMAN.mp4" playsinline></video>
-<video src="reel/SPIDERMAN.mp4" playsinline></video>
-<video src="reel/RANDOM.mp4" playsinline></video>
+
+<!--reels-->
+<section class="reels">
+    <h2 class="section-title">Instagram Reels</h2>
+    <div class="reels-grid">
+    <video src="reel/BMW.mp4" playsinline></video>
+    <video src="reel/SPIDERMAN.mp4" playsinline></video>
+    <video src="reel/IRONMAN.mp4" playsinline></video>
+    <video src="reel/RANDOM.mp4" playsinline></video>
 </div>
+
 </section>
+
+
 
 <section class="services fade-up">
 <h2 class="section-title">Services</h2>
@@ -209,7 +215,7 @@ section{padding:5rem 9%;}
 <h2 class="section-title">About Me</h2>
 <p class="about-text">
 I’m Raj, a professional video editor skilled in Adobe Premiere Pro,
-After Effects, DaVinci Resolve, CapCut and Photoshop.
+After Effects, CapCut and Photoshop.
 I help creators grow with high-quality, engaging edits.
 </p>
 </section>
@@ -261,17 +267,57 @@ I help creators grow with high-quality, engaging edits.
 
 <script>
 function sendWhatsApp(){
-let url=`https://wa.me/919594892137?text=${encodeURIComponent(
-`Name: ${name.value}\nProject: ${project.value}\nMessage: ${message.value}`)}`;
-window.open(url,'_blank');
+
+    const name = document.getElementById("name").value;
+    const project = document.getElementById("project").value;
+    const message = document.getElementById("message").value;
+
+    const phoneNumber = "919594892137"; // +91 ke bina
+
+    const text =
+`Hi! I’m looking for a video editor for upcoming projects. Please let me know if you’re available.
+
+Name: ${name}
+Project: ${project}
+Message: ${message}`;
+
+    const url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(text);
+    window.open(url, "_blank");
+}
+</script>
+<script>
+let audioUnlocked = false;
+
+/* User ka first click = audio unlock */
+document.addEventListener('click', () => {
+    audioUnlocked = true;
+}, { once:true });
+
+/* Common hover logic */
+function hoverPlay(video){
+    video.addEventListener('mouseenter', () => {
+        video.muted = !audioUnlocked;   // click ke baad audio ON
+        video.play();
+    });
+
+    video.addEventListener('mouseleave', () => {
+        video.pause();
+        video.currentTime = 0;
+    });
+
+    video.addEventListener('click', () => {
+        video.muted = false;            // force audio ON
+        video.play();
+    });
 }
 
-document.querySelectorAll('.reels-grid video').forEach(video=>{
-video.addEventListener('mouseenter',()=>{video.muted=true;video.play();});
-video.addEventListener('mouseleave',()=>{video.pause();video.currentTime=0;});
-video.addEventListener('click',()=>{video.muted=false;video.play();});
-});
+/* Apply to showreel */
+const showreel = document.getElementById("showreelVideo");
+if(showreel) hoverPlay(showreel);
+
+/* Apply to reels */
+document.querySelectorAll('.reels-grid video')
+        .forEach(video => hoverPlay(video));
 </script>
 
-</body>
-</html>
+
