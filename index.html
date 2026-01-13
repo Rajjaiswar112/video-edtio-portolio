@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Video Editor Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root{
+    --main-color: #ff2c2c;
+    --bg-dark: #0b0b0b;
+    --card-dark: #161616;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:var(--bg-dark);
+    color:white;
+}
+
+section{
+    padding:5rem 9%;
+}
+
+.section-title{
+    font-size:4rem;
+    text-align:center;
+    color:var(--main-color);
+    margin-bottom:3rem;
+}
+
+/* HEADER */
+.header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:1.5rem 9%;
+}
+
+.logo-box{
+    display:flex;
+    align-items:center;
+    gap:0.8rem;
+}
+
+/* ✅ LOGO SIZE SMALL */
+.logo-box img{
+    width:50px;
+    height:50px;
+    object-fit:cover;
+}
+
+.logo-box span{
+    font-size:1.6rem;
+    font-weight:600;
+}
+
+/* HOME */
+.home{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:5rem;
+
+    background: 
+        linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+        url("bg.png");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+.home-content h1{
+    font-size:5.5rem;
+}
+
+.home-content h3{
+    font-size:3.5rem;
+}
+
+.typing-text span::before{
+    content:"Video Editor";
+    color:var(--main-color);
+}
+
+.editor-tagline{
+    margin-top:1rem;
+    color:#ccc;
+    letter-spacing:0.2rem;
+}
+
+.social-icons a{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    width:4rem;
+    height:4rem;
+    border:2px solid var(--main-color);
+    border-radius:50%;
+    margin:2rem 1rem 0 0;
+    color:var(--main-color);
+    transition:0.3s;
+}
+
+.social-icons a:hover{
+    background:var(--main-color);
+    color:black;
+    transform:scale(1.2);
+    box-shadow:0 0 20px var(--main-color);
+}
+
+.btn{
+    display:inline-block;
+    margin-top:2rem;
+    padding:1rem 2.5rem;
+    border-radius:3rem;
+    border:2px solid var(--main-color);
+    color:var(--main-color);
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:var(--main-color);
+    color:black;
+}
+
+/* SHOWREEL */
+.showreel video{
+    width:80%;
+    display:block;
+    margin:auto;
+    border-radius:1.5rem;
+    box-shadow:0 0 40px var(--main-color);
+}
+
+/* BEFORE AFTER */
+.ba-container{
+    display:flex;
+    gap:3rem;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.ba-box{
+    width:45%;
+}
+
+.ba-box h3{
+    text-align:center;
+    margin-bottom:1rem;
+    color:var(--main-color);
+}
+
+.ba-box video{
+    width:100%;
+    border-radius:1rem;
+}
+
+/* REELS */
+.reels-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:2rem;
+}
+
+.reels-grid video{
+    width:100%;
+    aspect-ratio:9/16;
+    object-fit:cover;
+    border-radius:1rem;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.reels-grid video:hover{
+    box-shadow:0 0 25px var(--main-color);
+}
+
+/* CLIENTS */
+.client-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:2rem;
+}
+
+.client-card{
+    padding:3rem;
+    text-align:center;
+    border:2px solid var(--main-color);
+    border-radius:1rem;
+    transition:0.3s;
+}
+
+.client-card:hover{
+    background:var(--main-color);
+    color:black;
+    transform:translateY(-8px);
+}
+
+/* CONTACT */
+.contact-form{
+    max-width:600px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:2rem;
+}
+
+.contact-form input,
+.contact-form textarea{
+    padding:1.5rem;
+    background:var(--card-dark);
+    border:2px solid var(--main-color);
+    color:white;
+    border-radius:0.8rem;
+}
+
+.contact-form textarea{
+    height:150px;
+    resize:none;
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo-box">
+        <img src="logo.jpg" alt="Logo">
+        <span>Video Editor</span>
+    </div>
+    <a href="#contact" class="btn">Hire Me</a>
+</header>
+
+<!-- HOME -->
+<section class="home">
+    <div class="home-content">
+        <h1>Hi, I'm Raj <span style="color:var(--main-color)">Video Editor</span></h1>
+        <h3 class="typing-text">Professional <span></span></h3>
+        <p class="editor-tagline">Reels • YouTube • Cinematic Videos</p>
+
+        <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-solid fa-film"></i></a>
+            <a href="#"><i class="fa-solid fa-video"></i></a>
+            <a href="https://instagram.com/Raj_edit.ae" target="_blank">
+    <i class="fa-brands fa-instagram"></i>
+</a>
+        </div>
+
+        <a href="#contact" class="btn">Hire Me</a>
+    </div>
+</section>
+
+<!-- SHOWREEL -->
+<section class="showreel">
+    <h2 class="section-title">Showreel</h2>
+    <video src="showreel.mp4" controls autoplay muted loop></video>
+</section>
+
+<!-- BEFORE AFTER -->
+<section class="before-after">
+    <h2 class="section-title">Before / After</h2>
+    <div class="ba-container">
+        <div class="ba-box">
+            <h3>Before</h3>
+            <video src="before.mp4" controls></video>
+        </div>
+        <div class="ba-box">
+            <h3>After</h3>
+            <video src="after.mp4" controls></video>
+        </div>
+    </div>
+</section>
+
+<!-- REELS -->
+<section class="reels">
+    <h2 class="section-title">Instagram Reels</h2>
+    <div class="reels-grid">  
+    <video src="/reel/BMW.mp4" controls playsinline></video>
+    <video src="/reel/SPIDERMAN.mp4" controls playsinline></video>
+    <video src="/reel/IRONMAN.mp4" controls playsinline></video>
+    <video src="/reel/RANDOM.mp4" controls playsinline></video>
+    </div>
+</section>
+
+<!-- CLIENTS -->
+<section class="clients">
+    <h2 class="section-title">Client Work</h2>
+    <div class="client-grid">
+        <div class="client-card">YouTube Creators</div>
+        <div class="client-card">Instagram Influencers</div>
+        <div class="client-card">Brand Ads</div>
+        <div class="client-card">Podcasts</div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <form class="contact-form" onsubmit="sendWhatsApp(); return false;">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="text" id="project" placeholder="Project Type" required>
+        <textarea id="message" placeholder="Your Message" required></textarea>
+        <button class="btn">Send on WhatsApp</button>
+    </form>
+</section>
+
+<script>
+function sendWhatsApp(){
+    let name=document.getElementById("name").value;
+    let project=document.getElementById("project").value;
+    let message=document.getElementById("message").value;
+
+    let phone="+91 9594892137";
+    let url="https://wa.me/09594892137?text=Hi!%20I%E2%80%99m%20looking%20for%20a%20video%20editor%20for%20upcoming%20projects.%20Please%20let%20me%20know%20if%20you%E2%80%99re%20available."+phone+"?hellow="+
+    encodeURIComponent(
+        "Name: "+name+"\nProject: "+project+"\nMessage: "+message
+    )
+    window.open(url,"_blank");
+}
+
+document.querySelectorAll('.reels-grid video').forEach(video=>{
+    video.addEventListener('mouseenter',()=>video.play());
+    video.addEventListener('mouseleave',()=>{
+        video.pause();
+        video.currentTime=0;
+    });
+});
+</script>
+
+</body>
+</html>
